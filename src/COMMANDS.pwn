@@ -4,7 +4,14 @@
 CMD:newmap(playerid, params[]) {
     if(MapOpened == true) return SendClientMessage(playerid, -1, "You already opened map, use /closemap to close curently map.");
 
+    new namemap[64];
+    if(sscanf(params, "s[64]", namemap)) return SendClientMessage(playerid, -1, "Use : /newmap <mapname>");
+
     MapOpened = true;
+
+    new msg[256];
+    format(msg, sizeof msg, "Succesfuly created %s map", MapName);
+    SendClientMessage(playerid, -1, msg);
 
     return 1;
 }

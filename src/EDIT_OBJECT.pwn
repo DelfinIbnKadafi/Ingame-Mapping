@@ -5,7 +5,7 @@ stock SaveEditObject(index, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float
     GetDynamicObjectPos(Object[ObjectCount][ObjectID], Object[ObjectCount][PosX], Object[ObjectCount][PosY], Object[ObjectCount][PosZ]);
     GetDynamicObjectRot(Object[ObjectCount][ObjectID], Object[ObjectCount][RotX], Object[ObjectCount][RotY], Object[ObjectCount][RotZ]);
 
-    if(ToggleLabel == true && IsValid3DTextLabel(Object[index][LabelID])) {
+    if(ToggleLabel == true) {
         Delete3DTextLabel(Object[index][LabelID]);
         new msg[8];
         format(msg, sizeof msg, "%d", ObjectCount);

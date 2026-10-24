@@ -8,6 +8,8 @@
 #include "EDIT_OBJECT.pwn"
 #include "COMMANDS.pwn"
 
+#define FILTERSCRIPT
+
 public OnFilterScriptInit() {
     printf("[FIlterscript] Loaded Ingame Mapping");
     return 1;
