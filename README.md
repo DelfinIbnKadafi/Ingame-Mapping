@@ -24,7 +24,7 @@ INGAME in the argument.
 
 Example :
 
-**Open MP config.json**
+#### Open MP config.json
 
 ```json
 "side_scripts": [
@@ -32,7 +32,7 @@ Example :
 ]
 ```
 
-**SA-MP server.cfg**
+#### SA-MP server.cfg
 
 ```cfg
 filterscripts INGAME
