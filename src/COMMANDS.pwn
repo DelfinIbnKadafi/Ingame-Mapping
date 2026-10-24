@@ -26,6 +26,7 @@ CMD:closemap(playerid, params[]) {
     return 1;
 }
 
+// create object
 CMD:newobject(playerid, params[]) {
     if(MapOpened == false) return SendClientMessage(playerid, -1, "You're not opened any map yet.");
 
