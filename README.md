@@ -2,7 +2,7 @@
 
 Ingame Mapping is a filterscripts for samp/openmp gamemode. Usually we use another gamemode/server only for making a new mapping,
 but with Ingame Mapping, you can make mapping in your real time server, so all system, mapping, and all things in your server
-will show in the Ingame Mapping. Beside mapping in game, your mapping also exported to txt files and fill with `CreateObject` function.
+will show in the Ingame Mapping. Beside mapping in game, your mapping also exported to txt files and fill with `CreateDynamicObject` function.
 
 ## Reqruirments
 
@@ -46,7 +46,7 @@ And then run your server like normally, makesure the INGAME.amx is exist in filt
 | ------------- | ------------ |
 | Ingame Mapping | Mapping object ingame |
 | Database Save | If you make new mapping, and you forgot to export the mapping, server will create db files for save the mapping, you can also use /savemap to make the db save files |
-| Export Mapping | You can export mapping using /exportmap, and server will make txt files with CreateObject functions inside the files |
+| Export Mapping | You can export mapping using /exportmap, and server will make txt files with CreateDynamicObject functions inside the files |
 | Import Mapping | You can import your db files or txt files for import a mpping, make sure the format of txt and db files is valid |
 
 ## Commands List

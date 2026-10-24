@@ -15,7 +15,7 @@ CMD:closemap(playerid, params[]) {
 
     MapOpened = false;
 
-    for(new i = 0; i < MAX_OBJECTS; i++) {
+    for(new i = 0; i < MAX_OBJECT; i++) {
         if(IsValidObject(Object[i][ObjectID])) DestroyObject(Object[i][ObjectID]);
     }
 
@@ -29,10 +29,18 @@ CMD:closemap(playerid, params[]) {
 CMD:newobject(playerid, params[]) {
     if(MapOpened == false) return SendClientMessage(playerid, -1, "You're not opened any map yet.");
 
-    if(MapCount == MAX_OBJECTS) return SendClientMessage(playerid, -1, "The object slot is max.");
+    if(ObjectCount == MAX_OBJECT) return SendClientMessage(playerid, -1, "The object slot is max.");
 
     new modelid;
     if(sscanf(params, "i", modelid)) return SendClientMessage(playerid, -1, "Use : /newobject <modelid>");
+
+    new Float:x, Float:y, Float:z;
+    GetPlayerPos(playerid, x, y, z);
+
+    x += 3.0;
+    y += 2.0;
+
+    Object[ObjectCount][ObjectID] = CreateDynamicObject(modelid, x, y, z, 0.0, 0.0, 0.0, -1, -1, -1);
 
     return 1;
 }
