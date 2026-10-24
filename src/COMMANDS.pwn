@@ -40,7 +40,17 @@ CMD:newobject(playerid, params[]) {
     x += 3.0;
     y += 2.0;
 
+    ObjectCount++;
+
     Object[ObjectCount][ObjectID] = CreateDynamicObject(modelid, x, y, z, 0.0, 0.0, 0.0, -1, -1, -1);
+    GetDynamicObjectPos(Object[ObjectCount][ObjectID], Object[ObjectCount][PosX], Object[ObjectCount][PosY], Object[ObjectCount][PosZ]);
+
+    new msg[8];
+    format(msg, sizeof msg, "%d", ObjectCount);
+
+    if(ToggleLabel == true) {
+        Object[ObjectCount][LabelID] = Create3DTextLabel(msg, 0xffff00ff, Object[ObjectCount][PosX], Object[ObjectCount][PosY], Object[ObjectCount][PosZ], 10.0, -1);
+    }
 
     return 1;
 }

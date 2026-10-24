@@ -2,6 +2,7 @@
 enum ObjectData {
     ObjectID,
     ModelID,
+    Text3D:LabelID,
     Float:PosX,
     Float:PosY,
     Float:PosZ,
@@ -20,3 +21,6 @@ new ObjectCount = 0;
 // varibale for curently map opened
 new bool:MapOpened = false;
 new MapName[64];
+
+// toggle label
+new bool:ToggleLabel = true;
