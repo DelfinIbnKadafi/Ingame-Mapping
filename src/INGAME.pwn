@@ -3,6 +3,10 @@
 #include "sscanf2"
 #include "streamer"
 
+// modular file
+#include "DATA.pwn"
+#include "COMMANDS.pwn"
+
 // delete warning 237
 #pragma warning disable 237
 
