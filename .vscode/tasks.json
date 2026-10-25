@@ -1,18 +1,20 @@
-
 {
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Pawn: Build current file",
+      "label": "Pawn: Build Ingame Mapping (open.mp)",
       "type": "process",
       "command": "C:\\Projects\\Pawn\\compiler\\pawncc.exe",
       "args": [
-        "${file}",
-        "-D${fileDirname}",
-        "-iC:\\Projects\\Pawn\\Ingame-Mapping\\includes",
+        "${workspaceFolder}/src/INGAME.pwn",
+        "-D${workspaceFolder}/src",
+        "-i${workspaceFolder}/includes",
+        "-o${workspaceFolder}/src/INGAME.amx",
         "-;+",
         "-(+",
-        "-d3"
+        "-d3",
+        "-C-",
+        "-E+"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -20,6 +22,36 @@
       "group": {
         "kind": "build",
         "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Pawn: Build Ingame Mapping (SA-MP)",
+      "type": "process",
+      "command": "C:\\Projects\\Pawn\\compiler\\pawncc.exe",
+      "args": [
+        "${workspaceFolder}/src/INGAME.pwn",
+        "-D${workspaceFolder}/src",
+        "-i${workspaceFolder}/includes",
+        "-o${workspaceFolder}/src/INGAME_SAMP.amx",
+        "-;+",
+        "-(+",
+        "-d3",
+        "-C-",
+        "-E+",
+        "INGAME_SAMP=1"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
       },
       "presentation": {
         "reveal": "always",
