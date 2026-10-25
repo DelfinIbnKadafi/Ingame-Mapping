@@ -69,7 +69,7 @@ public OnPlayerEditDynamicObject(playerid, STREAMER_TAG_OBJECT:objectid, respons
     EditingObject[playerid] = 0;
     ObjectEditor[index] = INVALID_PLAYER_ID;
 
-    if(response == _:EDIT_RESPONSE_FINAL) {
+    if(response == EDIT_RESPONSE_FINAL) {
         if(!SaveEditObject(index, x, y, z, rx, ry, rz)) {
             RestoreObject(index);
             SendClientMessage(playerid, -1, "Can't save edit, the old position is restored.");
