@@ -14,7 +14,7 @@ enum ObjectData {
 // 1000 max objects for prototype
 #define MAX_OBJECT 1000 // id is start from 1 to 1000
 
-new Object[MAX_OBJECT][ObjectData];
+new Object[MAX_OBJECT + 1][ObjectData];
 
 new ObjectCount = 0;
 

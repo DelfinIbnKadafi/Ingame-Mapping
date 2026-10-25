@@ -2,14 +2,14 @@
 stock SaveEditObject(index, Float:x, Float:y, Float:z, Float:rx, Float:ry, Float:rz) {
     SetDynamicObjectPos(Object[index][ObjectID], x, y, z);
     SetDynamicObjectRot(Object[index][ObjectID], rx, ry, rz);
-    GetDynamicObjectPos(Object[ObjectCount][ObjectID], Object[ObjectCount][PosX], Object[ObjectCount][PosY], Object[ObjectCount][PosZ]);
-    GetDynamicObjectRot(Object[ObjectCount][ObjectID], Object[ObjectCount][RotX], Object[ObjectCount][RotY], Object[ObjectCount][RotZ]);
+    GetDynamicObjectPos(Object[index][ObjectID], Object[index][PosX], Object[index][PosY], Object[index][PosZ]);
+    GetDynamicObjectRot(Object[index][ObjectID], Object[index][RotX], Object[index][RotY], Object[index][RotZ]);
 
     if(ToggleLabel == true) {
         Delete3DTextLabel(Object[index][LabelID]);
         new msg[8];
         format(msg, sizeof msg, "%d", ObjectCount);
-        Object[ObjectCount][LabelID] = Create3DTextLabel(msg, 0xffff00ff, Object[ObjectCount][PosX], Object[ObjectCount][PosY], Object[ObjectCount][PosZ], 10.0, -1);
+        Object[ObjectCount][LabelID] = Create3DTextLabel(msg, 0xffff00ff, Object[index][PosX], Object[index][PosY], Object[index][PosZ], 10.0, -1);
     }
 }
 

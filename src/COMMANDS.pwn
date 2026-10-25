@@ -4,8 +4,7 @@
 CMD:newmap(playerid, params[]) {
     if(MapOpened == true) return SendClientMessage(playerid, -1, "You already opened map, use /closemap to close curently map.");
 
-    new namemap[64];
-    if(sscanf(params, "s[64]", namemap)) return SendClientMessage(playerid, -1, "Use : /newmap <mapname>");
+    if(sscanf(params, "s[64]", MapName)) return SendClientMessage(playerid, -1, "Use : /newmap <mapname>");
 
     MapOpened = true;
 
@@ -22,8 +21,8 @@ CMD:closemap(playerid, params[]) {
 
     MapOpened = false;
 
-    for(new i = 0; i < MAX_OBJECT; i++) {
-        if(IsValidObject(Object[i][ObjectID])) DestroyObject(Object[i][ObjectID]);
+    for(new i = 0; i <= MAX_OBJECT; i++) {
+        if(IsValidDynamicObject(Object[i][ObjectID])) DestroyDynamicObject(Object[i][ObjectID]);
     }
 
     new msg[256];
@@ -48,7 +47,10 @@ CMD:newobject(playerid, params[]) {
     x += 3.0;
     y += 2.0;
 
+    // if object is 0, and player make 1 object, id start from 1, and end on 1000
     ObjectCount++;
+
+    Object[ObjectCount][ModelID] = modelid;
 
     Object[ObjectCount][ObjectID] = CreateDynamicObject(modelid, x, y, z, 0.0, 0.0, 0.0, -1, -1, -1);
     GetDynamicObjectPos(Object[ObjectCount][ObjectID], Object[ObjectCount][PosX], Object[ObjectCount][PosY], Object[ObjectCount][PosZ]);
@@ -70,10 +72,10 @@ CMD:editobject(playerid, params[]) {
 
     new index;
     if(sscanf(params, "i", index)) return SendClientMessage(playerid, -1, "Use : /editobject <index>");
-
+    
     if(!IsValidDynamicObject(Object[index][ObjectID])) return SendClientMessage(playerid, -1, "The object is'nt exist yet.");
 
-    if(!IsPlayerInRangeOfPoint(playerid, 50.0, Object[ObjectCount][PosX], Object[ObjectCount][PosY], Object[ObjectCount][PosZ])) return SendClientMessage(playerid, -1, "You must in radius 50 of the object.");
+    if(!IsPlayerInRangeOfPoint(playerid, 50.0, Object[index][PosX], Object[index][PosY], Object[index][PosZ])) return SendClientMessage(playerid, -1, "You must in radius 50 of the object.");
 
     EditDynamicObject(playerid, Object[index][ObjectID]);
 
