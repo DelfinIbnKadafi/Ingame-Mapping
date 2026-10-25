@@ -24,3 +24,7 @@ new MapName[64];
 
 // toggle label
 new bool:ToggleLabel = true;
+
+// data folder
+#define DB_FOLDER "ingame_mapping/save"
+#define EXPORT_FOLDER "ingame_mapping/exported"
